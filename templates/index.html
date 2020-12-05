@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Covid Tracker</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+
+<body>
+    <section class="hero is-danger">
+        <div class="hero-body">
+            <div class="container">
+                <img src="/static/covid-19.png" alt="">
+                <h1 class="title">
+                    CovTracker
+                </h1>
+                <h2 class="subtitle">
+                    Get covid updates of Countries!
+                </h2>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container">
+            <form method="POST" action="/">
+                <div class="field is-grouped">
+                    <p class="control is-expanded">
+                        <input class="input" name="countryName" type="text" placeholder="Enter a Country">
+                    </p>
+                    <p class="control">
+                        <button class="button is-dark">
+      Search
+                        </button>
+                    </p>
+                </div>
+        </div>
+        </form>
+    </section>
+    <section>
+        <div class="container">
+            <div class="tile is-ancestor">
+                <div class="tile is-vertical">
+                    <div class="tile">
+                        {%if country%}
+                        <div class="tile is-parent is-vertical">
+                            <article class="tile is-child notification is-danger">
+                                <p class="title">{{country}}</p>
+                                <p class="subtitle">Total Cases: {{cases.Total_cases}}</p>
+                                <p class="subtitle">Total Deaths: {{cases.Total_deaths}}</p>
+                                <p class="subtitle">Total Recovered: {{cases.Total_recovered}}</p>
+                                <p class="subtitle">Active Cases: {{cases.Active_cases}}</p>
+                            </article>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <br>
+    <section class="has-background-dark">
+        <div class="container">
+            <div class="row justify-content-center ali">
+                <div class="col">
+                    <p class="has-text-centered has-text-light">This Web App was created by <strong class="has-text-danger">DTGLOVER</strong> &copy 2020</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
